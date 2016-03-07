@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+struct Weather
+{
+    double TotalRainfall[12];
+    double HTemperature[12];
+    double LTemperature[12];
+    double AverageTemperature[12];
+    
+};
+
+Weather AverageTemp(Weather *W, int size)
+{
+    Weather average[12];
+    for(int i = 1;i<=12;i++)
+    {
+        W[i].HTemperature[i]+W[i].LTemperature[i];
+        
+        
+    }
+    
+}
+
+int main()
+{
+    Weather W[12];
+    int size =12;
+    
+    for(int i = 1;i<=12;i++)
+    {
+        cout << "Enter Total Rainfall in " << i << " month";
+        cin >> W[i].TotalRainfall[i];
+        
+        cout << " Enter the highest temperature " << i << " month";
+        cin >> W[i].HTemperature[i];
+        
+        cout << " Enter the Lowest temperature " << i << " month";
+        cin >> W[i].LTemperature[i];
+        
+        
+    }
+    
+     for(int i = 1;i<=12;i++)
+     {
+         AverageTemp(&(W[i]), size);
+     }
+
+}

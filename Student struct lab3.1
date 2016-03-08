@@ -82,13 +82,31 @@ void calcAvgAndGrade (Student* arr, int numStudents, int numTests)
 
 void displayAStudent (const Student& st, int numTests)
 {
-	
+	cout << st.name;
+	for(int i = 0; i < numTests; i++)
+	{
+		cout << st.test[i];
+	}
+	cout << st.average;
+	cout << st.id;
 }
+
+void displayStudents (Student* arr, int numStudents, int numTests)
+{
+
+	for(int i =0; i < numStudents; i++)
+	{
+		displayAStudent(arr[i], numTests);
+
+	}
+
+}
+
 
 
 int main ()
 {
-	
+	char grade;
 	int numOfStudents, numOfTest;
 	cout<<"Enter number of students ";
 	cin>>numOfStudents;
@@ -97,6 +115,9 @@ int main ()
 	Student * classA = allocateArray(numOfStudents, numOfTest);
 	getInput( classA , numOfStudents, numOfTest);
 	calcAvgAndGrade (classA, numOfStudents, numOfTest);
-
+	displayStudents(classA, numOfStudents, numOfTest);
+	cout << " Which grade you want to check";
+	cin >> grade;
+	getStudentCount(classA, numOfStudents, grade) 
 	return 0;
 }

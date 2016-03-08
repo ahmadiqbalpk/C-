@@ -1,0 +1,102 @@
+#include <iostream>
+using namespace std;
+struct Student 
+{
+	char name[50];
+	int id;
+	double *test;
+	double average;
+	char grade;
+};
+
+Student * allocateArray(int &numS, int &test)
+{
+	// Student * ptr = new Student[numS];
+	// Student * ptr = new Student[test];
+	Student *ptr = new Student[numS];
+        for (int i = 0; i < numS; i++)
+        {
+            ptr[i].test = new double[test];
+        }
+	return  ptr;
+}
+
+
+void getInput(Student *st,int numS, int numTests)
+{
+	for (int i = 0; i < numS; i++)
+	{
+		cout << "Enter the name of the student: ";
+		cin >> st[i].name;
+		cout << "Enter the ID of the student: ";
+		cin >> st[i].id;
+		for (int j = 0; j < numTests; j++)
+		{
+			cout << "Enter the marks for test " << j + 1 << ": ";
+			cin >> st[i].test[j];
+		}
+	}
+	/*
+	int numOfTest;
+	for (int i = 0; i < numS; i++)
+	{
+		cout<<"Enter number of test for student "<<i  +1;
+		cin >> numOfTest;
+		st[i].test=new double[numOfTest];
+
+	}
+	for(int i = 0; i < numOfTest; i++)
+	{
+		cout<< "Enter number of test " << i+1;
+		cin >> st[i].test[i];
+
+	}*/
+}
+
+
+void calcAvgAndGrade (Student* arr, int numStudents, int numTests)
+{
+	/*for (int k =0; k<numStudents; k++)
+	{
+		arr[k].average =0;
+	}
+	for (int i=0; i< numStudents; i++)
+	{
+			for (int j=0; j< numTests;j++)
+			{
+				arr[i].average +=arr[j].test[j];
+				arr [i].average /= numStudents;
+			}
+	}*/
+	for (int i = 0; i < numStudents; i++)
+	{
+		int temp = 0;
+		for (int j = 0; j < numTests; j++)
+		{
+			temp += arr[i].test[j];
+		}
+		arr[i].average = temp / numTests;
+	}
+}
+
+
+void displayAStudent (const Student& st, int numTests)
+{
+	
+}
+
+
+int main ()
+{
+	
+	int numOfStudents, numOfTest;
+	cout<<"Enter number of students ";
+	cin>>numOfStudents;
+	cout<<"enter number of tests ";
+	cin>>numOfTest;
+	Student * classA = allocateArray(numOfStudents, numOfTest);
+	getInput( classA , numOfStudents, numOfTest);
+	calcAvgAndGrade (classA, numOfStudents, numOfTest);
+
+	return 0;
+}

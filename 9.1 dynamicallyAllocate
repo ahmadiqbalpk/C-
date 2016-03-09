@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+int* allocateArray(int size)
+{
+    int *arr1;
+    arr1 = new int[size];
+    return arr1;
+}
+
+void freeMemory(int *arr, int size)
+{
+    delete [] arr;
+}
+
+int main()
+{
+    int size, *arr;
+    cout << "Enter the arraay size" << endl;
+    cin >> size;
+    
+    arr = allocateArray(size);
+    freeMemory(arr, size);
+}

@@ -1,0 +1,34 @@
+#include<iostream>
+using namespace std;
+
+struct Student{
+    
+    char name;
+    int idNum;
+    double gpa;
+};
+
+void getData(Student *s){
+    
+   cout << "enter student name"<< endl;
+    cin >> (*s).name;
+   // cin.ignore();
+    cout << "enter Id" << endl;
+    cin >> (*s).idNum;
+    cout << "enter gpa" <<endl;
+    cin >> (*s).gpa;
+    
+    
+}
+void printData(Student S)
+{
+    cout << " the Name is " << S.idNum;
+}
+
+int main()
+{
+    Student S;
+    
+    getData(&S);
+    printData(S);
+}

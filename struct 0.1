@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std;
+
+    struct Inventory {
+        int PartNum;
+        char description;
+        double price;
+        
+    };
+void setItem(Inventory &part)
+{
+    
+    cout << "Enter name";
+    cin >> part.PartNum;
+  
+    cout << "ener price";
+    cin >> part.price;
+}
+
+void ShowPart(Inventory part)
+{
+    cout << part.PartNum << endl;
+    cout << part.price << endl;
+}
+
+int main()
+{
+    Inventory part;
+    
+    setItem(part);
+    ShowPart(part);
+    return 0;
+    
+}
+ 

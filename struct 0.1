@@ -7,7 +7,7 @@ using namespace std;
         double price;
         
     };
-void setItem(Inventory &part)
+void setItem(Inventory &part)  // used & reference operator
 {
     
     cout << "Enter name";
@@ -27,8 +27,8 @@ int main()
 {
     Inventory part;
     
-    setItem(part);
-    ShowPart(part);
+    setItem(part); // argument passed by reference
+    ShowPart(part); // argument passed by value 
     return 0;
     
 }

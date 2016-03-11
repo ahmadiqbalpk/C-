@@ -1,0 +1,89 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+struct Customer{
+    
+    string name;
+    int telePhone;
+    double accountBalance;
+    double dueLast;
+    
+    
+};
+void EnterData(Customer &c, int size)
+{
+    cin.ignore();
+    cout << "enter Name " <<endl;
+    getline(cin, c.name);
+    
+    cout << "enter telephone number" <<endl;
+    cin >> c.telePhone;
+    cout << "enter account balance" << endl;
+    cin >> c.accountBalance;
+    
+}
+
+void UpdateData( Customer &c, int size)
+{
+    cin.ignore();
+    cout << "enter Name " <<endl;
+    getline(cin, c.name);
+    
+    cout << "enter telephone number" <<endl;
+    cin >> c.telePhone;
+    cout << "enter account balance" << endl;
+    cin >> c.accountBalance;
+    
+}
+void PrintData( Customer &c , int size, int i)
+{
+    cout << i << " : the  name is :" << c.name << endl;
+    cout << i << " : the telephone number is :" << c.telePhone << endl;
+    cout  << i << ": the account balance is :" << c.accountBalance << endl;
+}
+int main()
+{
+    int exit=1;
+    int size =2;
+    Customer c[2];
+    int num;
+    while(exit!=0)
+    {
+    cout << "If you want to enter data press 1"<<endl<< "if you want to update data press 2"<<endl << "if you want to print data press 3 " <<endl <<"exit with press 0" << endl;
+    
+    cin >> num;
+        if(num==1)
+        {
+        
+        for(int i =0; i<size;i++)
+            {
+                EnterData(c[i], size);
+            }
+        
+        }
+        int edit;
+    
+        if(num==2)
+        {
+            cout << "enter the record number you want to edit";
+            cin >> edit;
+            UpdateData(c[edit], size);
+        }
+        if(num==3)
+        {
+            
+            for(int i =0; i<size;i++)
+            {
+                PrintData(c[i], size, i);
+            }
+            
+        }
+        if(num==0)
+        {
+            break;
+        }
+   
+    }
+    return 0;
+}

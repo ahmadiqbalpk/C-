@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std;
+
+class  smallobj{
+    
+    private :
+    int someData;
+    
+    public:
+    void setdata(int d)
+    {
+        someData=d;
+    }
+    void showData()
+    {
+        cout << "Data is " << someData << endl;
+    }
+    
+};
+
+int main()
+{
+    smallobj s1, s2;
+    
+    s1.setdata(1077);
+    s2.setdata(2344);
+    
+    s1.showData();
+    s2.showData();
+    
+    return 0;
+}

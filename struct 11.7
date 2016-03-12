@@ -1,11 +1,12 @@
 #include <iostream>
-#include <string>
+
 
 using namespace std;
 struct Customer{
     
-    string name;
+    char name[20];
     int telePhone;
+    char address[50];
     double accountBalance;
     double dueLast;
     
@@ -13,27 +14,37 @@ struct Customer{
 };
 void EnterData(Customer &c, int size)
 {
-    cin.ignore();
-    cout << "enter Name " <<endl;
-    getline(cin, c.name);
     
+    cout << "enter Name ";
+    cin.ignore();
+    cin.getline(c.name,20);
+  
     cout << "enter telephone number" <<endl;
     cin >> c.telePhone;
+    cout << "enter movie name" << endl;
+    cin.ignore();
+    cin.getline(c.address,20);
     cout << "enter account balance" << endl;
     cin >> c.accountBalance;
+    
     
 }
 
 void UpdateData( Customer &c, int size)
 {
-    cin.ignore();
+    
     cout << "enter Name " <<endl;
-    getline(cin, c.name);
+    cin.ignore();
+    cin.getline(c.name, 20);
     
     cout << "enter telephone number" <<endl;
     cin >> c.telePhone;
     cout << "enter account balance" << endl;
     cin >> c.accountBalance;
+    cout << "enter movie name" << endl;
+    cin.ignore();
+    cin.getline(c.address,20);
+    
     
 }
 void PrintData( Customer &c , int size, int i)
@@ -41,6 +52,7 @@ void PrintData( Customer &c , int size, int i)
     cout << i << " : the  name is :" << c.name << endl;
     cout << i << " : the telephone number is :" << c.telePhone << endl;
     cout  << i << ": the account balance is :" << c.accountBalance << endl;
+    cout << i << ": the address is :" << c.address << endl;
 }
 int main()
 {
@@ -85,5 +97,6 @@ int main()
         }
    
     }
-    return 0;
+    
 }
+

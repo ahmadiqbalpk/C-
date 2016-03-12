@@ -1,123 +1,227 @@
+
 #include <iostream>
 using namespace std;
-struct Student 
+struct Student
 {
-	char name[50];
-	int id;
-	double *test;
-	double average;
-	char grade;
+    char name[50];
+    int id;
+    double *test;
+    double average;
+    char grade;
 };
 
 Student * allocateArray(int &numS, int &test)
 {
-	// Student * ptr = new Student[numS];
-	// Student * ptr = new Student[test];
-	Student *ptr = new Student[numS];
-        for (int i = 0; i < numS; i++)
-        {
-            ptr[i].test = new double[test];
-        }
-	return  ptr;
+    // Student * ptr = new Student[numS];
+    // Student * ptr = new Student[test];
+    Student *ptr = new Student[numS];
+    for (int i = 0; i < numS; i++)
+    {
+        ptr[i].test = new double[test];
+    }
+    return  ptr;
 }
 
 
 void getInput(Student *st,int numS, int numTests)
 {
-	for (int i = 0; i < numS; i++)
-	{
-		cout << "Enter the name of the student: ";
-		cin >> st[i].name;
-		cout << "Enter the ID of the student: ";
-		cin >> st[i].id;
-		for (int j = 0; j < numTests; j++)
-		{
-			cout << "Enter the marks for test " << j + 1 << ": ";
-			cin >> st[i].test[j];
-		}
-	}
-	/*
-	int numOfTest;
-	for (int i = 0; i < numS; i++)
-	{
-		cout<<"Enter number of test for student "<<i  +1;
-		cin >> numOfTest;
-		st[i].test=new double[numOfTest];
-
-	}
-	for(int i = 0; i < numOfTest; i++)
-	{
-		cout<< "Enter number of test " << i+1;
-		cin >> st[i].test[i];
-
-	}*/
+    for (int i = 0; i < numS; i++)
+    {
+        cout << "Enter the name of the student: ";
+        cin >> st[i].name;
+        cout << "Enter the ID of the student: ";
+        cin >> st[i].id;
+        for (int j = 0; j < numTests; j++)
+        {
+            cout << "Enter the marks for test " << j + 1 << ": ";
+            cin >> st[i].test[j];
+        }
+    }
+    /*
+     int numOfTest;
+     for (int i = 0; i < numS; i++)
+     {
+     cout<<"Enter number of test for student "<<i  +1;
+     cin >> numOfTest;
+     st[i].test=new double[numOfTest];
+     
+     }
+     for(int i = 0; i < numOfTest; i++)
+     {
+     cout<< "Enter number of test " << i+1;
+     cin >> st[i].test[i];
+     
+     }*/
 }
 
 
 void calcAvgAndGrade (Student* arr, int numStudents, int numTests)
 {
-	/*for (int k =0; k<numStudents; k++)
-	{
-		arr[k].average =0;
-	}
-	for (int i=0; i< numStudents; i++)
-	{
-			for (int j=0; j< numTests;j++)
-			{
-				arr[i].average +=arr[j].test[j];
-				arr [i].average /= numStudents;
-			}
-	}*/
-	for (int i = 0; i < numStudents; i++)
-	{
-		int temp = 0;
-		for (int j = 0; j < numTests; j++)
-		{
-			temp += arr[i].test[j];
-		}
-		arr[i].average = temp / numTests;
-	}
+    /*for (int k =0; k<numStudents; k++)
+     {
+     arr[k].average =0;
+     }
+     for (int i=0; i< numStudents; i++)
+     {
+     for (int j=0; j< numTests;j++)
+     {
+     arr[i].average +=arr[j].test[j];
+     arr [i].average /= numStudents;
+     }
+     }*/
+    for (int i = 0; i < numStudents; i++)
+    {
+        int temp = 0;
+        for (int j = 0; j < numTests; j++)
+        {
+            temp += arr[i].test[j];
+        }
+        arr[i].average = temp / numTests;
+    }
 }
 
 
 void displayAStudent (const Student& st, int numTests)
 {
-	cout << st.name;
-	for(int i = 0; i < numTests; i++)
-	{
-		cout << st.test[i];
-	}
-	cout << st.average;
-	cout << st.id;
+    cout << st.name<<endl;
+    for(int i = 0; i < numTests; i++)
+    {
+        cout << st.test[i]<<endl;
+    }
+    cout << st.average<<endl;
+    cout << st.id<<endl;
 }
 
 void displayStudents (Student* arr, int numStudents, int numTests)
 {
-
-	for(int i =0; i < numStudents; i++)
-	{
-		displayAStudent(arr[i], numTests);
-
-	}
-
+    
+    for(int i =0; i < numStudents; i++)
+    {
+        displayAStudent(arr[i], numTests);
+        
+    }
+    
 }
 
+int getStudentCount (Student* arr, int numStudents, char grade)
+{
+    int count1=0,count2=0,count3=0,count4=0,count5=0,count6=0;
+    for(int i =0; i < numStudents; i++)
+    {
+    
+      if (arr[i].average >=91)
+        {
+            arr[i].grade = 'A';
+            count1++;
+        }
+      else if (arr[i].average >=81 && arr[i].average < 91)
+      {
+          arr[i].grade = 'B';
+          count2++;
+      }
+      else if (arr[i].average >=71 && arr[i].average < 81)
+      {
+        arr[i].grade = 'C';
+          count3++;
+      }
+      else if (arr[i].average >=61 && arr[i].average < 71)
+      {
+        arr[i].grade = 'D';
+          count4++;
+      }
+     else if (arr[i].average < 61)
+        {
+            arr[i].grade = 'F';
+            count5++;
+        }
+    }
+    
+    if(grade=='A')
+    {
+     return count1;
+    }
+     if (grade=='B')
+     {
+        return count2;
+    }
+     if (grade == 'C')
+    {
+        return count3;
+    }
+    
+    if(grade=='D')
+    {
+        return count4;
+        
+    }
+   if(grade=='F')
+   {
+       return count5;
+   }
+    //some issues to solve here,applied brute force to solve that issue temporarily
+     if(grade =='Z');
+    {
+        return count6;
+    }
+    
+}
+Student* getBestStudent (Student* arr, int numStudents)
+{
+    Student *ptr;
+    int index=0;
+    for (int i=0; i <numStudents; i++)
+    {
+        if (arr[i].average < arr[i+1].average)
+        {
+            index = i+1;
+        }
+        else
+            index = i;
+    }
+    ptr = &arr[index];
+    return ptr;
+
+}
+void displayBestStudent (Student* arr, int numStudents, int numTests)
+{
+    cout << "the best student average is " << getBestStudent(arr, numStudents);
+}
+
+void deallocateArray (Student* &arr, int numStudents, int numTests)
+{
+    for (int i=0; i< numStudents; i++)
+    {
+        for (int j=0; j< numTests; j++)
+        {
+            delete &arr[i].test[j];
+            arr[i].test[j] =0;
+        }
+        delete &arr[i];
+    }
+
+    
+}
 
 
 int main ()
 {
-	char grade;
-	int numOfStudents, numOfTest;
-	cout<<"Enter number of students ";
-	cin>>numOfStudents;
-	cout<<"enter number of tests ";
-	cin>>numOfTest;
-	Student * classA = allocateArray(numOfStudents, numOfTest);
-	getInput( classA , numOfStudents, numOfTest);
-	calcAvgAndGrade (classA, numOfStudents, numOfTest);
-	displayStudents(classA, numOfStudents, numOfTest);
-	cout << " Which grade you want to check";
-	cin >> grade;
-	getStudentCount(classA, numOfStudents, grade) 
-	return 0;
+    char grade;
+    int count;
+    int numOfStudents, numOfTest;
+    cout<<"Enter number of students ";
+    cin>>numOfStudents;
+    cout<<"enter number of tests ";
+    cin>>numOfTest;
+    Student * classA = allocateArray(numOfStudents, numOfTest);
+    getInput( classA , numOfStudents, numOfTest);
+    calcAvgAndGrade (classA, numOfStudents, numOfTest);
+    displayStudents(classA, numOfStudents, numOfTest);
+    cout << " Which grade you want to check";
+    cin >> grade;
+    count= getStudentCount(classA, numOfStudents, grade);
+    cout << count << endl;
+    displayBestStudent(classA, numOfStudents,numOfTest);
+    deallocateArray (classA,  numOfStudents,  numOfTest);
+
+    return 0;
 }

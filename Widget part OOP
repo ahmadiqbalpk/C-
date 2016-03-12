@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+class automobile {
+    
+    private :
+    int modelNumber;
+    int cost;
+    public :
+    
+    void setData( int mn , int c)
+    {
+        modelNumber = mn;
+        cost = c;
+    }
+
+    void showData()
+    {
+        cout << "the model number is: " << modelNumber << endl;
+        cout << "the cost is: "<< cost<< endl;
+    }
+
+};
+
+int main()
+{
+    automobile mobile;
+    int num1, num2;
+    cout << " enter the model number: " << endl;
+    cin >> num1;
+    cout << "enter the cost: " << endl;
+    cin >> num2;
+    mobile.setData(num1, num2);
+    mobile.showData();
+}

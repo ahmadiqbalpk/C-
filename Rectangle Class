@@ -179,3 +179,112 @@ int main()
     
   */
 }
+
+// ////////////////// Third Method // ////////////////
+#include<iostream>
+using namespace std;
+
+class Rectangle{
+    
+  private:
+    double length;
+    double width;
+    
+  public:
+    
+    void setMeasurement(double, double);
+ //   void brickSize (double,double);
+    double getMeasurement();
+  //  double bricksArea();
+    double ComputeArea(double, double arr[], int);
+    
+    
+};
+/*
+void Rectangle::brickSize(double l, double w)
+{
+    length=l;
+    width=w;
+}
+
+*/
+void Rectangle::setMeasurement(double l , double w)
+{
+    length=l;
+    width=w;
+}
+
+double Rectangle:: getMeasurement()
+{
+    return length * width;
+}
+
+/*
+double Rectangle:: bricksArea()
+{
+    return length*width;
+}
+*/
+
+
+double Rectangle::ComputeArea(double area, double arr[],int size)
+{
+     double area1;    //redifnation of area;
+    for(int i = 0; i< size-1;i++)
+    {
+        area1 = arr[i]/area;
+    }
+    
+    return area;
+}
+
+
+int main()
+{
+
+    double l,w;
+    int size=3;
+    Rectangle room[size];
+ // Rectangle brick;
+    double arr[size];
+    double area,calculate[size];
+    for(int i =0; i<size-1;i++)
+    {
+        cout<<"enter the dimension of room length and width for "<< i+1;
+        cin >>l >> w;
+        room[i].setMeasurement(l,w);
+    }
+    
+    
+    for(int i =0; i<size-1;i++)
+        
+    {
+        arr[i]= room[i].getMeasurement();
+        cout<< "the area of room" << i+1<< "is= "<<  arr[i] <<endl;
+    }
+    
+   
+   //brick info
+    
+    cout << "enter the area of brick" << endl;
+    cin >> l >> w;
+    room[size].setMeasurement(l, w);
+    area= room[size].getMeasurement();
+    cout << "the brick area is " << area << endl;
+    // brick area
+    
+    
+    for(int i = 0;i < size-1;i++)
+    {
+        calculate[i] = room[i].ComputeArea(area, &arr[i] , size);
+    }
+    
+   
+
+    for(int i=0; i < size-1;i++)
+    {
+       cout << " the bricks  of room required is  " << i+1 <<  calculate[i] << endl;
+    }
+    return 0;
+ 
+}

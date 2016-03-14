@@ -1,0 +1,80 @@
+#include<iostream>
+using namespace std;
+
+class Rectangle{
+    
+  private:
+    double length;
+    double width;
+    
+  public:
+    
+    void setMeasurement(double, double);
+    void brickSize (double,double);
+    double getMeasurement();
+    double bricksArea();
+    double ComputeArea(double, Rectangle, int);
+    
+    
+};
+void Rectangle::brickSize(double l, double w)
+{
+    length=l;
+    width=w;
+}
+
+void Rectangle::setMeasurement(double l , double w)
+{
+    length=l;
+    width=w;
+}
+
+double Rectangle:: getMeasurement()
+{
+    return length * width;
+}
+
+double Rectangle:: bricksArea()
+{
+    return length*width;
+}
+
+double Rectangle::ComputeArea(double area, Rectangle room[].getMeasurment, int size)
+{
+    
+}
+
+int main()
+{
+
+    double l,w;
+    int size=2;
+    Rectangle room[size];
+    Rectangle brick;
+    double area,calculate;
+    for(int i =0; i<size;i++)
+    {
+        cout<<"enter the dimension of room length and width for "<< i+1;
+        cin >>l >> w;
+        room[i].setMeasurement(l,w);
+    }
+    
+    
+    for(int i =0; i<size;i++)
+    {
+     cout<< "the area of room" << i+1<< "is<"<<   room[i].getMeasurement()<<endl;
+    }
+    
+    cout << "enter brick size" << endl;
+    cin >> l >> w;
+    
+    brick.brickSize(l, w);
+    area =brick.bricksArea();
+    
+    for(int i=0; i < size;i++)
+    {
+        calculate= room.ComputeArea(area, room[i].getMeasurement(),size)
+        
+    }
+    
+}

@@ -1,0 +1,124 @@
+#include <iostream>
+using namespace std;
+
+class Date{
+private:
+    int day;
+    int month;
+    int year;
+    
+public:
+    
+    void setDay(int );
+    void setMonth(int );
+    void setYear(int );
+    int getDay();
+    int getMonth();
+    int getYear();
+    void displayDate(int, int, int);
+    void dynamically();
+    
+    
+};
+
+void Date:: setDay(int d)
+{
+    day =d;
+    
+}
+void Date:: setMonth(int m)
+{
+    month=m;
+}
+
+void Date:: setYear(int y)
+{
+    year=y;
+}
+
+int Date:: getDay()
+{
+    return day;
+}
+
+int Date :: getMonth()
+{
+    return month;
+}
+
+int Date:: getYear()
+{
+    return year;
+}
+void Date::displayDate(int d, int m, int y)
+{
+    cout << d << "/" <<m<<"/"<<y<<endl;;
+}
+
+
+void Date::dynamically()
+{
+    cout << getDay()<<"/"<<getMonth()<<"/"<<getYear()<<endl;
+}
+
+
+
+
+int main()
+{
+    int size=5;
+    Date dmy[size];
+    
+    dmy[0].setDay(25);
+    dmy[0].setMonth(12);
+    dmy[0].setYear(1980);
+    
+    dmy[1].setDay(25);
+    dmy[1].setMonth(12);
+    dmy[1].setYear(1980);
+    
+    dmy[2].setDay(25);
+    dmy[2].setMonth(12);
+    dmy[2].setYear(1980);
+    
+    dmy[3].setDay(25);
+    dmy[3].setMonth(12);
+    dmy[3].setYear(1980);
+    
+    dmy[4].setDay(25);
+    dmy[4].setMonth(12);
+    dmy[4].setYear(1980);
+    
+    
+    
+    dmy[0].displayDate(25,12,1980);
+    dmy[1].displayDate(12,12,1990);
+    dmy[2].displayDate(22,05,2007);
+    dmy[3].displayDate(25,12,1980);
+    dmy[4].displayDate(25,12,1980);
+    
+    Date *dm;
+    int num;
+    
+    cout<< "how many dates you want to enter "<< endl;
+    cin >> num;
+    
+    dm = new Date[num];
+    int d,m,y;
+    
+    for(int i =0;i < num; i++)
+    {
+        cout << "enter day, month, year"<<endl;
+        cin >> d;
+        cin >>m;
+        cin >> y;
+        dm[i].setDay(d);
+        dm[i].setDay(m);
+        dm[i].setDay(y);
+        
+        dm[i].dynamically();
+        
+    }
+    
+    
+}

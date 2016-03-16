@@ -1,0 +1,102 @@
+//
+// header.h file
+
+#ifndef MYLIST_h
+#define MYLIST_h
+
+class MyList{
+    
+private:
+    int *list;
+    int numElements;
+public:
+    MyList(int);
+    void setList(int,int);
+    int getList(int);
+    ~MyList();
+    
+    
+};
+
+#endif
+ //  // // // // // //  // // // // // //  // // // // // //  // // // // // //  // // // // // //  // // // // //
+ 
+  //  // // // // // //   MyList.cpp  //  // // // // // //  //  // // // // // //  //  // // // // // //
+  #include "MYLIST.h"
+#include <iostream>
+
+
+MyList::MyList(int num)
+{
+    numElements=num;
+    list= new int[numElements];
+}
+
+
+void MyList:: setList(int i, int num)
+{
+    if( i>=0 && i <numElements)
+    {
+        list[i]=num;
+    }
+    
+    
+}
+
+int MyList:: getList(int index)
+{
+    int value=0;
+    
+    if(index >=0 && index < numElements)
+    {
+        value = list[index];
+    }
+    else
+    {
+        value = -9999;
+    }
+
+    return value;
+}
+
+MyList:: ~MyList()
+{
+   
+    delete [] list;
+}
+  //  // // // // // //  // // // // // //  // // // // // //  // // // // // //  // // // // // //  // // // // //  
+   //  // // // // // //  //  // // // // // // main.cpp   // // // // // //  // // // // // //  // // // // //
+
+#include "MyList.h"
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int size=5;
+    
+
+    MyList list(size);
+    int num;
+    
+    cout << "enter number you want to set on list"<< endl;
+    
+    for(int i=0;i <size;i++)
+    {
+        cin >> num;
+        list.setList(i,num);
+        
+        
+    }
+    
+    for(int i=0;i<size;i++)
+    {
+       cout << "the array elements are " <<  list.getList(i) << endl;
+    }
+    
+    
+}
+   
+  
+  
+  

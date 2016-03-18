@@ -1,4 +1,4 @@
-//weather 
+//weather OOP class representation
 
 #include <iostream>
 using namespace std;

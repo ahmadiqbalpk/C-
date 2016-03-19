@@ -1,0 +1,118 @@
+/////// header.h/////////
+
+#ifndef personaiInformation_h
+#define personaiInformation_h
+
+class personaiInformation{
+private:
+    int name;
+    int address;
+    int age;
+    int phone;
+    int *size;
+public:
+    personaiInformation(int *size);
+    void setData(int, int, int, int);
+    char getdataname();
+    int getdataage();
+    personaiInformation myInfo();
+    personaiInformation friendinfo();
+    personaiInformation familyinfo();
+    personaiInformation *allocateMemory(int);
+    
+};
+
+
+#endif
+
+
+.............................................. personaiInformation.cpp............................................
+#include "personaiInformation.h"
+#include <iostream>
+
+using namespace std;
+
+personaiInformation::personaiInformation(int* p)
+{
+    
+}
+
+void personaiInformation:: setData( int na, int add, int ag, int phon)
+{
+    name = na;
+    address = add;
+    age = ag;
+    phone = phon;
+    
+    
+}
+
+char personaiInformation:: getdataname()
+{
+    return name;
+    
+    
+}
+
+
+int personaiInformation:: getdataage()
+{
+    return age;
+    
+    
+}
+..............................................main.cpp...........................................................
+
+#include "personaiInformation.h"
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int name,address;
+    int age, phone;
+    personaiInformation  *family, *Friend;
+    
+    cout << "enter how many family info you want to enter";
+    cin >> num;
+    
+    
+    
+    // myinfo
+    
+    cout << "enter your name"<< endl;
+    cin.ignore();
+    cin >> name;
+    cin.ignore();
+    cout <<  "enter your address" << endl;
+    cin.ignore();
+    cin.ignore();
+    cin >> address;
+    cin.ignore();
+    //cin.ignore();
+    cout << "enter your age" << endl;
+    //cin.ignore();
+    //cin.ignore();
+    cin >>age;
+    // cin.ignore();
+    cout << "enter your phone number" <<endl;
+    cin >> phone;
+    
+    // set My info
+    
+    myinfo.setData(name, address, age, phone);
+    
+    cout << "the name is " << myinfo.getdataage();
+    cout << "the name is " << myinfo.getdataname();
+    
+    // FamilyInfo
+    int num;
+    cout << "enter how many family info you want to enter";
+    cin >> num;
+    
+    *family = family.allocateMemory(num);
+    
+    
+    
+}

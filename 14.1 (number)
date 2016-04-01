@@ -1,0 +1,151 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+class Numbers{
+    
+private:
+    
+    int num;
+    static char a[10][10];
+    static char b[10][10];
+    static char c[10][10];
+    
+public:
+    
+    Numbers();
+    Numbers(int);
+    void print();
+    
+};
+
+// default constructor
+Numbers::Numbers()
+{
+    num =0;
+    
+}
+// parameter constructor
+
+Numbers::Numbers(int n)
+{
+    num =n;
+}
+
+// use to print values.
+
+void Numbers:: print()
+{
+    
+    int t;
+    
+    
+    if(num<9999)
+        
+        
+    {
+        
+        
+        if(num>1000)
+            
+            
+        {
+            
+            
+            t=num/1000;
+            
+            
+            num=num%1000;
+            
+            cout << a[t-1] << "Thousand";
+           
+            
+            
+        }
+        
+        
+        if(num>100)
+            
+            
+        {
+            
+            
+            t=num/100;
+            
+            
+            num=num%100;
+            
+            cout << a[t-1] << "Hundred And ";
+            
+            
+            
+        }
+        
+        
+        if(num>=10 && num<20)
+            
+            
+        {
+            
+            
+            t=num/10;
+            
+            cout << b[t-1];
+            
+            
+        }
+        
+        
+        if(num>19 && num<=100)
+            
+            
+        {
+            
+            
+            t=num/10;
+            
+            
+            num=num%10;
+            
+            cout << c[t-1];
+            
+            
+            
+        }
+        
+        
+        if(num<10)
+            
+            
+        {
+            
+            cout << a[num-1];
+            
+            
+            
+        }
+        
+        
+    }
+    
+    
+}
+
+char Numbers:: a[10][10] = {"ONE","TWO","THREE","FOUR","FIVE","SIX","SEVEN","EIGHT","NINE"};
+char Numbers:: b[10][10] = {"ELEVEN","TWELVE","THIRTEEN","FOURTEEN","FIFTEEN","SIXTEEN","SEVENTEEN","EIGHTEEN","NINTEEN"};
+
+char Numbers:: c[10][10] = {"TEN","TWENTY","THIRTY","FOURTY","FIFTY","SIXTY","SEVENTY","EIGHTY","NINTY"};
+
+int main()
+{
+    
+    int n;
+    cout << "enter number " << endl;
+    cin>>n;
+    
+    Numbers Num(n);
+    
+    Num.print();
+    return 0;
+    
+}
